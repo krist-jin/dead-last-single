@@ -24,7 +24,7 @@
     </span>
   </p>
 </div>
-<div mat-dialog-actions>
+<div *ngIf="!points" mat-dialog-actions>
   <!-- <button mat-button (click)="onClickCancel()">Cancel</button> -->
-  <button mat-button [disabled]="!!points" (click)="onClickConfirm()">Confirm</button>
+  <button mat-button (click)="onClickConfirm()">Confirm</button>
 </div>

@@ -13,7 +13,9 @@ import {
   MatFormFieldModule,
   MatDialogModule,
   MatSelectModule,
-  MatOptionModule
+  MatOptionModule,
+  MatInputModule,
+  MatExpansionModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -23,13 +25,15 @@ import { CardComponent } from './card/card.component';
 import { AppService } from './app.service';
 import { GetGoldDialogComponent } from './dialogs/get-gold-dialog/get-gold-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { SettingsDialogComponent } from './dialogs/settings-dialog/settings-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardSuiteComponent,
     CardComponent,
-    GetGoldDialogComponent
+    GetGoldDialogComponent,
+    SettingsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +51,13 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatDialogModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    MatInputModule,
+    MatExpansionModule
   ],
   entryComponents: [
-    GetGoldDialogComponent
+    GetGoldDialogComponent,
+    SettingsDialogComponent
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

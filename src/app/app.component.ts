@@ -2,8 +2,9 @@ import { AppService } from './app.service';
 import { Component, ViewChild } from '@angular/core';
 import { SuiteType } from './app.constants';
 import { CardSuiteComponent } from './card-suite/card-suite.component';
-import { MatTab, MatTabChangeEvent, MatDialog } from '@angular/material';
+import { MatTab, MatTabChangeEvent, MatDialog, MatSidenav } from '@angular/material';
 import { GetGoldDialogComponent } from './dialogs/get-gold-dialog/get-gold-dialog.component';
+import { SettingsDialogComponent, GameSettings } from './dialogs/settings-dialog/settings-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,11 @@ export class AppComponent {
   myNumber: number = 3;
 
   gold: number = 0;
+
+  activeTabIndex = 0;
+
+  @ViewChild('sidenav')
+  sidenavComponent: MatSidenav;
 
   @ViewChild('normalSuite')
   normalSuiteComponent: CardSuiteComponent;
@@ -49,6 +55,14 @@ export class AppComponent {
     }
   }
 
+  clearSettings() {
+    this.gameMode = SuiteType.normal;
+    this.activeTabIndex = 0;
+    this.playerCount = 0;
+    this.myNumber = 0;
+    this.gold = 0;
+  }
+
   onClickGo() {
     this.isCardDisplayMode = true;
   }
@@ -64,6 +78,34 @@ export class AppComponent {
         this.gold += result;
       }
     });
+  }
+
+  onClickNewGame() {
+    this.clearSettings();
+    this.onClickSettings();
+    this.sidenavComponent.close();
+  }
+
+  onClickSettings() {
+    const dialogRef = this.dialog.open(SettingsDialogComponent, {
+      width: '250px',
+      disableClose: true,
+      data: {
+        playerCount: this.playerCount,
+        myNumber: this.myNumber,
+        gold: this.gold
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((result: GameSettings) => {
+      if (result) {
+        this.playerCount = result.playerCount;
+        this.myNumber = result.myNumber;
+        this.gold = result.gold;
+      }
+    });
+
+    this.sidenavComponent.close();
   }
 
   onExitFullScreen() {

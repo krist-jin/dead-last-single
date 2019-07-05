@@ -1,8 +1,9 @@
 <mat-sidenav-container [ngStyle]="{'display': !isCardDisplayMode ? 'initial' : 'none'}" fullscreen>
   <mat-sidenav #sidenav>
     <mat-list>
+      <mat-list-item (click)="onClickNewGame()">New Game</mat-list-item>
       <mat-list-item (click)="sidenav.close();">Rules</mat-list-item>
-      <mat-list-item (click)="sidenav.close();">Settings</mat-list-item>
+      <mat-list-item (click)="onClickSettings()">Settings</mat-list-item>
       <mat-list-item (click)="sidenav.close();">About</mat-list-item>
     </mat-list>
   </mat-sidenav>
@@ -16,7 +17,7 @@
       <div class="status-container">
         <div class="my-icon" [ngStyle]="{'background-color': appService.getColorByNumber(myNumber, SuiteType.normal)}"></div>
         <div class="info-container">
-          <div class="player-info">Player {{myNumber}}</div>
+          <div class="player-info">Player#{{myNumber}}</div>
           <div class="gold-info">
             <span class="gold-number">Gold: {{gold}}</span>
             <!-- <mat-icon class="gold-edit-icon">edit</mat-icon> -->
@@ -26,7 +27,7 @@
     </mat-toolbar>
 
     <div class="card-container">
-      <mat-tab-group mat-stretch-tabs (selectedTabChange)="onTabChange($event)">
+      <mat-tab-group mat-stretch-tabs [(selectedIndex)]="activeTabIndex" (selectedTabChange)="onTabChange($event)">
         <mat-tab #normalTab label="Vote">
           <app-card-suite
             #normalSuite
