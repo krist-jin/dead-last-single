@@ -13,6 +13,12 @@ export class AppComponent {
 
   gameMode: SuiteType = SuiteType.normal;
 
+  playerCount: number = 12;
+
+  myNumber: number = 3;
+
+  gold: number = 0;
+
   @ViewChild('normalSuite')
   normalSuiteComponent: CardSuiteComponent;
 

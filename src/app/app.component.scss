@@ -6,6 +6,36 @@
 
 .toolbar {
   flex: 0 0 auto;
+  padding-left: 0;
+
+  .status-container {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    right: 0;
+    margin-right: 16px;
+
+    .my-icon {
+      height: 40px;
+      width: 40px;
+      border-style: ridge;
+    }
+
+    .info-container {
+      font-size: 0.8rem;
+      margin-left: 10px;
+
+      .player-info {
+        position: relative;
+        top: 6px;
+      }
+
+      .gold-info {
+        position: relative;
+        bottom: 5px;
+      }
+    }
+  }
 }
 
 .card-container {
@@ -17,7 +47,4 @@
   display: flex;
   flex: 0 0 auto;
   flex-direction: column
-}
-.mat-button {
-  padding: 0 8px;
 }

@@ -8,11 +8,18 @@
   </mat-sidenav>
 
   <mat-sidenav-content class="main-container">
-    <mat-toolbar color="primary" class="toolbar">
+    <mat-toolbar class="toolbar">
       <button mat-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <span>Dead Last</span>
+      <div class="status-container">
+        <div class="my-icon" [ngStyle]="{'background-color': 'aqua'}"></div>
+        <div class="info-container">
+          <div class="player-info">Player {{myNumber}}</div>
+          <div class="gold-info">Gold: {{gold}}</div>
+        </div>
+      </div>
     </mat-toolbar>
 
     <div class="card-container">
@@ -21,8 +28,8 @@
           <app-card-suite
             #normalSuite
             [type]="SuiteType.normal"
-            [playerCount]="12"
-            [myNumber]="3"
+            [playerCount]="playerCount"
+            [myNumber]="myNumber"
           >
           </app-card-suite>
         </mat-tab>
