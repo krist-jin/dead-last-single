@@ -1,7 +1,9 @@
+import { AppService } from './app.service';
 import { Component, ViewChild } from '@angular/core';
 import { SuiteType } from './app.constants';
 import { CardSuiteComponent } from './card-suite/card-suite.component';
-import { MatTab, MatTabChangeEvent } from '@angular/material';
+import { MatTab, MatTabChangeEvent, MatDialog } from '@angular/material';
+import { GetGoldDialogComponent } from './dialogs/get-gold-dialog/get-gold-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -33,6 +35,11 @@ export class AppComponent {
 
   SuiteType = SuiteType;
 
+  constructor(
+    public appService: AppService,
+    public dialog: MatDialog
+  ) {}
+
   getSelectedCardNumber() {
     if (this.gameMode === SuiteType.normal) {
       return this.normalSuiteComponent && this.normalSuiteComponent.selectedCardNumber;
@@ -44,6 +51,19 @@ export class AppComponent {
 
   onClickGo() {
     this.isCardDisplayMode = true;
+  }
+
+  onClickGetGold() {
+    const dialogRef = this.dialog.open(GetGoldDialogComponent, {
+      width: '250px',
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.gold += result;
+      }
+    });
   }
 
   onExitFullScreen() {

@@ -1,0 +1,30 @@
+<h1 class="title-bar" mat-dialog-title>
+  <mat-icon (click)="onClickClose()" class="close-icon">close</mat-icon>
+</h1>
+<div mat-dialog-content>
+  <p>How many gold cards should you reveal?</p>
+  <div class="card-count-container">
+    <!-- <input matInput [(ngModel)]="goldCardCount"> -->
+    <mat-form-field>
+      <mat-label>Gold cards</mat-label>
+      <mat-select value="1" [(ngModel)]="goldCardCount" [disabled]="!!points">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <p *ngIf="points">
+    <span *ngIf="resultCards && resultCards.length > 1">
+      You got {{resultCards.join(' + ')}} = {{points}} gold bars!
+    </span>
+    <span *ngIf="resultCards && resultCards.length === 1">
+      You got {{points}} gold bars!
+    </span>
+  </p>
+</div>
+<div mat-dialog-actions>
+  <!-- <button mat-button (click)="onClickCancel()">Cancel</button> -->
+  <button mat-button [disabled]="!!points" (click)="onClickConfirm()">Confirm</button>
+</div>

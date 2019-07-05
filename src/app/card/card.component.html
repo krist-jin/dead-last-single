@@ -4,7 +4,7 @@
   [class.card-small]="!isFullScreen"
   [class.card-fullscreen]="isFullScreen"
   [class.card-selected]="isSelected"
-  [ngStyle]="{'background-color': getColorByNumber(cardNumber)}"
+  [ngStyle]="{'background-color': appService.getColorByNumber(cardNumber, cardType)}"
   (click)="onClickCard()"
 >
   <div>{{getCardContent()}}</div>

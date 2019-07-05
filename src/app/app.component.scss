@@ -33,6 +33,16 @@
       .gold-info {
         position: relative;
         bottom: 5px;
+
+        .gold-number {
+          margin-right: 5px;
+        }
+
+        .gold-edit-icon {
+          font-size: 1rem;
+          position: relative;
+          top: 3px;
+        }
       }
     }
   }

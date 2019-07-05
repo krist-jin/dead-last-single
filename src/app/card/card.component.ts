@@ -1,3 +1,4 @@
+import { AppService } from './../app.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { normalCardColorTable, SuiteType, showdownCardColorTable } from '../app.constants';
 
@@ -31,7 +32,7 @@ export class CardComponent implements OnInit {
 
   SuiteType = SuiteType;
 
-  constructor() { }
+  constructor(public appService: AppService) { }
 
   ngOnInit() {
   }
@@ -49,15 +50,6 @@ export class CardComponent implements OnInit {
 
   setIsSelected(isSelected: boolean) {
     this.isSelected = isSelected;
-  }
-
-  getColorByNumber(n: number) {
-    if (this.cardType === SuiteType.normal) {
-      return n ? normalCardColorTable[n] : 'unset';
-    }
-    if (this.cardType === SuiteType.showdown) {
-      return n ? showdownCardColorTable[n] : 'unset';
-    }
   }
 
   getCardContent() {

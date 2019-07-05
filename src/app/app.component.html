@@ -14,10 +14,13 @@
       </button>
       <span>Dead Last</span>
       <div class="status-container">
-        <div class="my-icon" [ngStyle]="{'background-color': 'aqua'}"></div>
+        <div class="my-icon" [ngStyle]="{'background-color': appService.getColorByNumber(myNumber, SuiteType.normal)}"></div>
         <div class="info-container">
           <div class="player-info">Player {{myNumber}}</div>
-          <div class="gold-info">Gold: {{gold}}</div>
+          <div class="gold-info">
+            <span class="gold-number">Gold: {{gold}}</span>
+            <!-- <mat-icon class="gold-edit-icon">edit</mat-icon> -->
+          </div>
         </div>
       </div>
     </mat-toolbar>
@@ -49,7 +52,9 @@
         mat-raised-button
         color="primary"
       >Go!</button>
-      <button mat-raised-button color="accent">Get Gold</button>
+      <button (click)="onClickGetGold()" mat-raised-button color="accent">
+        Get Gold
+      </button>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
