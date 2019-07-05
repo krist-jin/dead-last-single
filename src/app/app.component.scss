@@ -1,0 +1,23 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.toolbar {
+  flex: 0 0 auto;
+}
+
+.card-container {
+  flex: 1 1 auto;
+  // padding: 20px;
+}
+
+.action-container {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column
+}
+.mat-button {
+  padding: 0 8px;
+}

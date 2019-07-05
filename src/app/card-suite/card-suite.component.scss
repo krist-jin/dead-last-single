@@ -1,0 +1,13 @@
+.row {
+  margin: 0;
+}
+
+.action-bar {
+  margin: 10px;
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    margin: 3px;
+  }
+}

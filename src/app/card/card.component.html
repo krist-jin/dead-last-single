@@ -1,0 +1,11 @@
+<mat-icon class="close-button" *ngIf="isFullScreen" (click)="onClickClose()">close</mat-icon>
+<div
+  class="card-content"
+  [class.card-small]="!isFullScreen"
+  [class.card-fullscreen]="isFullScreen"
+  [class.card-selected]="isSelected"
+  [ngStyle]="{'background-color': getColorByNumber(cardNumber)}"
+  (click)="onClickCard()"
+>
+  <div>{{getCardContent()}}</div>
+</div>

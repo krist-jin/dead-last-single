@@ -1,0 +1,32 @@
+.card-content {
+  margin: 5px 0;
+  border-style: ridge;
+}
+
+.card-small {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: calc((100vh - 300px) / 4);
+}
+
+.card-fullscreen {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+}
+
+.card-selected {
+  opacity: 0.5;
+}
+
+.close-button {
+  position: fixed;
+  right: 0;
+}

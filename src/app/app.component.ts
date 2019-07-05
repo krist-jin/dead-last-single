@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { SuiteType } from './app.constants';
+import { CardSuiteComponent } from './card-suite/card-suite.component';
+import { MatTab, MatTabChangeEvent } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,48 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'dead-last';
+  isCardDisplayMode = false;
+
+  gameMode: SuiteType = SuiteType.normal;
+
+  @ViewChild('normalSuite')
+  normalSuiteComponent: CardSuiteComponent;
+
+  @ViewChild('showdownSuite')
+  showdownSuiteComponent: CardSuiteComponent;
+
+  @ViewChild('normalTab')
+  normalTabComponent: MatTab;
+
+  @ViewChild('showdownTab')
+  showdownTabComponent: MatTab;
+
+  SuiteType = SuiteType;
+
+  getSelectedCardNumber() {
+    if (this.gameMode === SuiteType.normal) {
+      return this.normalSuiteComponent && this.normalSuiteComponent.selectedCardNumber;
+    }
+    if (this.gameMode === SuiteType.showdown) {
+      return this.showdownSuiteComponent && this.showdownSuiteComponent.selectedCardNumber;
+    }
+  }
+
+  onClickGo() {
+    this.isCardDisplayMode = true;
+  }
+
+  onExitFullScreen() {
+    this.isCardDisplayMode = false;
+  }
+
+  onTabChange(tabChangeEvent: MatTabChangeEvent) {
+    this.normalSuiteComponent.clearSelection();
+    this.showdownSuiteComponent.clearSelection();
+    if (tabChangeEvent.index === 0) {
+      this.gameMode = SuiteType.normal;
+    } else {
+      this.gameMode = SuiteType.showdown;
+    }
+  }
 }

@@ -1,0 +1,30 @@
+<div class="suite-container">
+  <div class="action-bar">
+    <button mat-mini-fab color="warn">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-mini-fab color="accent">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+  <div *ngIf="type === SuiteType.normal" class="row">
+    <app-card
+      *ngFor="let n of numberList"
+      [cardType]="type"
+      [cardNumber]="n"
+      [isAmbush]="myNumber === n"
+      (cardClicked)="selectCard($event)"
+      class="col-4"
+    >
+    </app-card>
+  </div>
+  <div *ngIf="type === SuiteType.showdown" class="row">
+    <app-card
+      *ngFor="let n of numberList"
+      [cardType]="type"
+      [cardNumber]="n"
+      (cardClicked)="selectCard($event)"
+      class="col-4"
+    ></app-card>
+  </div>
+</div>
