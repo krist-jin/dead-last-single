@@ -6,7 +6,7 @@
   [class.card-selected]="isSelected"
   [class.card-hidden]="isHidden"
   [ngStyle]="{'background-color': appService.getColorByNumber(cardNumber, cardType)}"
-  (click)="onClickCard()"
+  (click)="onClickCard($event)"
 >
   <div>{{getCardContent()}}</div>
 </div>

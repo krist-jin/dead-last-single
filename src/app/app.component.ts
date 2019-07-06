@@ -63,6 +63,11 @@ export class AppComponent {
     this.gold = 0;
   }
 
+  onClickBlank() {
+    this.normalSuiteComponent.clearSelection();
+    this.showdownSuiteComponent.clearSelection();
+  }
+
   onClickGo() {
     this.isCardDisplayMode = true;
   }

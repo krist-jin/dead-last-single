@@ -43,10 +43,11 @@ export class CardComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClickCard() {
+  onClickCard(event) {
     if (!this.isFullScreen && !this.isEdit && !this.isHidden) {
       this.cardClicked.emit(this.cardNumber);
     }
+    event.stopPropagation();
   }
 
   onClickClose() {
@@ -57,7 +58,6 @@ export class CardComponent implements OnInit {
   onClickToggleVisible(event) {
     event.stopPropagation();
     this.isHidden = !this.isHidden;
-    console.log(58);
   }
 
   setIsSelected(isSelected: boolean) {
