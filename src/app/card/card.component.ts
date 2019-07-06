@@ -22,6 +22,12 @@ export class CardComponent implements OnInit {
   isAmbush = false;
 
   @Input()
+  isEdit = false;
+
+  @Input()
+  isHidden = false;
+
+  @Input()
   isSelected = false;
 
   @Output()
@@ -38,7 +44,7 @@ export class CardComponent implements OnInit {
   }
 
   onClickCard() {
-    if (!this.isFullScreen) {
+    if (!this.isFullScreen && !this.isEdit && !this.isHidden) {
       this.cardClicked.emit(this.cardNumber);
     }
   }
@@ -46,6 +52,12 @@ export class CardComponent implements OnInit {
   onClickClose() {
     this.isFullScreen = false;
     this.exitFullScreen.emit();
+  }
+
+  onClickToggleVisible(event) {
+    event.stopPropagation();
+    this.isHidden = !this.isHidden;
+    console.log(58);
   }
 
   setIsSelected(isSelected: boolean) {

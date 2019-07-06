@@ -1,11 +1,16 @@
-<mat-icon class="close-button" *ngIf="isFullScreen" (click)="onClickClose()">close</mat-icon>
+<mat-icon *ngIf="isFullScreen"  class="close-button"(click)="onClickClose()">close</mat-icon>
 <div
   class="card-content"
   [class.card-small]="!isFullScreen"
   [class.card-fullscreen]="isFullScreen"
   [class.card-selected]="isSelected"
+  [class.card-hidden]="isHidden"
   [ngStyle]="{'background-color': appService.getColorByNumber(cardNumber, cardType)}"
   (click)="onClickCard()"
 >
   <div>{{getCardContent()}}</div>
 </div>
+<span *ngIf="isEdit" (click)="onClickToggleVisible($event)" class="eye-icon fa-stack fa-sm">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="far fa-stack-2x" [ngClass]="{'fa-eye': !isHidden, 'fa-eye-slash': isHidden}" style="color:black"></i>
+</span>

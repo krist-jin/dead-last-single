@@ -26,6 +26,8 @@ export class CardSuiteComponent implements OnInit {
 
   SuiteType = SuiteType;
 
+  isEditMode = false;
+
   get numberList() {
     if (this.type === SuiteType.normal) {
       return this.playerCount ? _.range(1, this.playerCount + 1) : [];
@@ -38,6 +40,25 @@ export class CardSuiteComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onToggleEdit() {
+    this.isEditMode = !this.isEditMode;
+    this.cardList.forEach(card => {
+      card.isEdit = this.isEditMode;
+      card.isSelected = false;
+    });
+    this.selectedCardNumber = null;
+  }
+
+  onClickRefresh() {
+    this.isEditMode = false;
+    this.cardList.forEach(card => {
+      card.isEdit = false;
+      card.isHidden = false;
+      card.isSelected = false;
+    });
+    this.selectedCardNumber = null;
   }
 
   selectCard(n: number) {

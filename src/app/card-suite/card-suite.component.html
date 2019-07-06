@@ -1,9 +1,9 @@
 <div class="suite-container">
-  <div class="action-bar">
-    <button mat-mini-fab color="warn">
-      <mat-icon>edit</mat-icon>
+  <div class="action-bar" [ngStyle]="{visibility: type === SuiteType.normal ? 'initial' : 'hidden'}">
+    <button (click)="onToggleEdit()" mat-mini-fab [color]="isEditMode ? 'primary' : 'warn'">
+      <mat-icon>{{isEditMode ? 'check' : 'edit'}}</mat-icon>
     </button>
-    <button mat-mini-fab color="accent">
+    <button (click)="onClickRefresh()" mat-mini-fab color="accent">
       <mat-icon>refresh</mat-icon>
     </button>
   </div>

@@ -1,24 +1,19 @@
 .card-content {
   margin: 5px 0;
   border-style: ridge;
-}
-
-.card-small {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.card-small {
   height: calc((100vh - 300px) / 4);
 }
 
 .card-fullscreen {
   height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   margin: 0;
 }
 
@@ -29,4 +24,15 @@
 .close-button {
   position: fixed;
   right: 0;
+}
+
+.eye-icon {
+  color: white;
+  position: absolute;
+  top: -3px;
+  right: 0;
+}
+
+.card-hidden {
+  opacity: 0.1;
 }
