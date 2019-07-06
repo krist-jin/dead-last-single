@@ -86,7 +86,7 @@ export class AppComponent {
   }
 
   onClickNewGame() {
-    this.clearSettings();
+    // this.clearSettings();
     this.onClickSettings();
     this.sidenavComponent.close();
   }
