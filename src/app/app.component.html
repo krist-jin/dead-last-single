@@ -15,7 +15,7 @@
       </button>
       <span>Dead Last</span>
       <div class="status-container">
-        <div class="my-icon" [ngStyle]="{'background-color': appService.getColorByNumber(myNumber, SuiteType.vote)}"></div>
+        <div class="my-icon" [ngStyle]="{'background-image': 'url(' + appService.getAvatar(myNumber, SuiteType.vote) + ')'}"></div>
         <div class="info-container">
           <div class="player-info">Player#{{myNumber}}</div>
           <div class="gold-info">
@@ -51,7 +51,7 @@
         (click)="onClickGo()"
         [disabled]="!voteSuiteComponent?.selectedCardNumber && !showdownSuiteComponent?.selectedCardNumber"
         mat-raised-button
-        color="primary"
+        color="warn"
       >Go!</button>
       <button (click)="onClickGetGold()" mat-raised-button color="accent">
         Get Gold

@@ -3,9 +3,17 @@
   border-style: ridge;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 1rem;
+  font-family: Impact, Charcoal, sans-serif;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.card-content-text {
+  font-size: 1rem;
 }
 
 .card-small {
@@ -15,15 +23,24 @@
 .card-fullscreen {
   height: 100%;
   margin: 0;
+  font-size: 12rem;
+  justify-content: center;
+  align-items: center;
+
+  .card-number {
+    position: relative;
+    bottom: 35vh;
+  }
 }
 
 .card-selected {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .close-button {
   position: fixed;
-  right: 0;
+  font-size: 2rem;
+  right: 5px;
 }
 
 .eye-icon {

@@ -64,19 +64,26 @@ export class CardComponent implements OnInit {
     this.isSelected = isSelected;
   }
 
+  getBackgroudImage(cardNumber: number, cardType: SuiteType) {
+    return {
+      'background-image': (this.isSelected ? 'url(/assets/images/target.svg)' + ',' : '') +
+        'url(' + this.appService.getAvatar(cardNumber, cardType) + ')'
+    };
+  }
+
   getCardContent() {
     if (this.cardType === SuiteType.vote) {
       return this.isAmbush ? 'AMBUSH' : this.cardNumber;
     }
-    if (this.cardType === SuiteType.showdown) {
-      switch (this.cardNumber) {
-        case 1:
-          return 'SHARE';
-        case 2:
-          return 'STEAL';
-        case 3:
-          return 'GRAB ONE & GO';
-      }
-    }
+    // if (this.cardType === SuiteType.showdown) {
+    //   switch (this.cardNumber) {
+    //     case 1:
+    //       return 'SHARE';
+    //     case 2:
+    //       return 'STEAL';
+    //     case 3:
+    //       return 'GRAB ONE & GO';
+    //   }
+    // }
   }
 }

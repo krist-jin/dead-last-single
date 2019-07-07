@@ -5,12 +5,14 @@
   [class.card-fullscreen]="isFullScreen"
   [class.card-selected]="isSelected"
   [class.card-hidden]="isHidden"
-  [ngStyle]="{'background-color': appService.getColorByNumber(cardNumber, cardType)}"
+  [class.card-content-text]="isAmbush || cardType === SuiteType.showdown"
+  [ngStyle]="getBackgroudImage(cardNumber, cardType)"
   (click)="onClickCard($event)"
 >
-  <div>{{getCardContent()}}</div>
+  <!-- [ngStyle]="{'background-color': appService.getColorByNumber(cardNumber, cardType)}" -->
+  <div class="card-number">{{getCardContent()}}</div>
 </div>
 <span *ngIf="isEdit" (click)="onClickToggleVisible($event)" class="eye-icon fa-stack fa-sm">
   <i class="fa fa-circle fa-stack-2x"></i>
-  <i class="far fa-stack-2x" [ngClass]="{'fa-eye': !isHidden, 'fa-eye-slash': isHidden}" style="color:black"></i>
+  <i class="far fa-stack-2x" [ngClass]="{'fa-eye': !isHidden, 'fa-eye-slash': isHidden}" style="color:grey"></i>
 </span>

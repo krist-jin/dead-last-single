@@ -11,3 +11,7 @@
     margin: 3px;
   }
 }
+
+.cheatsheet {
+  max-height: calc((100vh - 250px) / 4 * 3);
+}
