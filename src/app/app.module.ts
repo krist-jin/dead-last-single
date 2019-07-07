@@ -26,6 +26,7 @@ import { AppService } from './app.service';
 import { GetGoldDialogComponent } from './dialogs/get-gold-dialog/get-gold-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { SettingsDialogComponent } from './dialogs/settings-dialog/settings-dialog.component';
+import { RulesComponent } from './dialogs/rules/rules.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SettingsDialogComponent } from './dialogs/settings-dialog/settings-dial
     CardSuiteComponent,
     CardComponent,
     GetGoldDialogComponent,
-    SettingsDialogComponent
+    SettingsDialogComponent,
+    RulesComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { SettingsDialogComponent } from './dialogs/settings-dialog/settings-dial
   ],
   entryComponents: [
     GetGoldDialogComponent,
-    SettingsDialogComponent
+    SettingsDialogComponent,
+    RulesComponent
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

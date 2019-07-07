@@ -1,0 +1,38 @@
+<div class="title-bar">
+  <h1 mat-dialog-title>Game Rules</h1>
+  <mat-select [(value)]="selectedLanguage">
+    <mat-select-trigger>
+      <mat-icon [svgIcon]="selectedLanguage"></mat-icon>{{selectedLanguage}}
+    </mat-select-trigger>
+    <mat-option [value]="Language.Chinese"><mat-icon svgIcon="Chinese"></mat-icon>Chinese</mat-option>
+    <mat-option [value]="Language.English"><mat-icon svgIcon="English"></mat-icon>English</mat-option>
+  </mat-select>
+  <mat-icon class="close-button" (click)="onClickClose()">close</mat-icon>
+</div>
+
+<div mat-dialog-content>
+  <div class="image-container">
+    <div *ngIf="selectedLanguage === Language.Chinese" class="chinese-image-container">
+      <img class="rules-image" src="assets/images/1.webp">
+      <img class="rules-image" src="assets/images/2.webp">
+      <img class="rules-image" src="assets/images/3.webp">
+      <img class="rules-image" src="assets/images/4.webp">
+      <img class="rules-image" src="assets/images/5.webp">
+      <img class="rules-image" src="assets/images/6.webp">
+      <img class="rules-image" src="assets/images/7.webp">
+      <img class="rules-image" src="assets/images/8.webp">
+    </div>
+    <div *ngIf="selectedLanguage === Language.English" class="english-image-container">
+      <img class="rules-image" src="assets/images/e1.webp">
+      <img class="rules-image" src="assets/images/e2.webp">
+      <img class="rules-image" src="assets/images/e3.webp">
+      <img class="rules-image" src="assets/images/e4.webp">
+      <img class="rules-image" src="assets/images/e5.webp">
+      <img class="rules-image" src="assets/images/e6.webp">
+      <img class="rules-image" src="assets/images/e7.webp">
+      <img class="rules-image" src="assets/images/e8.webp">
+    </div>
+  </div>
+  <div class="license-text">Reference: <a href="https://mp.weixin.qq.com/s/9V9GYJEFDVk11H3qQLpuqw">https://mp.weixin.qq.com/s/9V9GYJEFDVk11H3qQLpuqw</a></div>
+  <div class="license-text">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+</div>

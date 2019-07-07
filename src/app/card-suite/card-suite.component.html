@@ -1,5 +1,5 @@
 <div class="suite-container">
-  <div class="action-bar" [ngStyle]="{visibility: type === SuiteType.normal ? 'initial' : 'hidden'}">
+  <div class="action-bar" [ngStyle]="{visibility: type === SuiteType.vote ? 'initial' : 'hidden'}">
     <button (click)="onToggleEdit()" mat-mini-fab [color]="isEditMode ? 'primary' : 'warn'">
       <mat-icon>{{isEditMode ? 'check' : 'edit'}}</mat-icon>
     </button>
@@ -7,7 +7,7 @@
       <mat-icon>refresh</mat-icon>
     </button>
   </div>
-  <div *ngIf="type === SuiteType.normal" class="row">
+  <div *ngIf="type === SuiteType.vote" class="row">
     <app-card
       *ngFor="let n of numberList"
       [cardType]="type"

@@ -1,6 +1,6 @@
 import { AppService } from './../app.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { normalCardColorTable, SuiteType, showdownCardColorTable } from '../app.constants';
+import { SuiteType } from '../app.constants';
 
 @Component({
   selector: 'app-card',
@@ -65,7 +65,7 @@ export class CardComponent implements OnInit {
   }
 
   getCardContent() {
-    if (this.cardType === SuiteType.normal) {
+    if (this.cardType === SuiteType.vote) {
       return this.isAmbush ? 'AMBUSH' : this.cardNumber;
     }
     if (this.cardType === SuiteType.showdown) {

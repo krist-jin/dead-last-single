@@ -2,9 +2,11 @@ import { AppService } from './app.service';
 import { Component, ViewChild } from '@angular/core';
 import { SuiteType } from './app.constants';
 import { CardSuiteComponent } from './card-suite/card-suite.component';
-import { MatTab, MatTabChangeEvent, MatDialog, MatSidenav } from '@angular/material';
+import { MatTab, MatTabChangeEvent, MatDialog, MatSidenav, MatIconRegistry } from '@angular/material';
 import { GetGoldDialogComponent } from './dialogs/get-gold-dialog/get-gold-dialog.component';
 import { SettingsDialogComponent, GameSettings } from './dialogs/settings-dialog/settings-dialog.component';
+import { RulesComponent } from './dialogs/rules/rules.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,7 @@ import { SettingsDialogComponent, GameSettings } from './dialogs/settings-dialog
 export class AppComponent {
   isCardDisplayMode = false;
 
-  gameMode: SuiteType = SuiteType.normal;
+  gameMode: SuiteType = SuiteType.vote;
 
   playerCount: number = 12;
 
@@ -27,14 +29,14 @@ export class AppComponent {
   @ViewChild('sidenav')
   sidenavComponent: MatSidenav;
 
-  @ViewChild('normalSuite')
-  normalSuiteComponent: CardSuiteComponent;
+  @ViewChild('voteSuite')
+  voteSuiteComponent: CardSuiteComponent;
 
   @ViewChild('showdownSuite')
   showdownSuiteComponent: CardSuiteComponent;
 
-  @ViewChild('normalTab')
-  normalTabComponent: MatTab;
+  @ViewChild('voteTab')
+  voteTabComponent: MatTab;
 
   @ViewChild('showdownTab')
   showdownTabComponent: MatTab;
@@ -43,12 +45,23 @@ export class AppComponent {
 
   constructor(
     public appService: AppService,
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    this.matIconRegistry.addSvgIcon(
+      'Chinese',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/chinese.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      'English',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/english.svg')
+    );
+  }
 
   getSelectedCardNumber() {
-    if (this.gameMode === SuiteType.normal) {
-      return this.normalSuiteComponent && this.normalSuiteComponent.selectedCardNumber;
+    if (this.gameMode === SuiteType.vote) {
+      return this.voteSuiteComponent && this.voteSuiteComponent.selectedCardNumber;
     }
     if (this.gameMode === SuiteType.showdown) {
       return this.showdownSuiteComponent && this.showdownSuiteComponent.selectedCardNumber;
@@ -56,7 +69,7 @@ export class AppComponent {
   }
 
   clearSettings() {
-    this.gameMode = SuiteType.normal;
+    this.gameMode = SuiteType.vote;
     this.activeTabIndex = 0;
     this.playerCount = 0;
     this.myNumber = 0;
@@ -64,7 +77,7 @@ export class AppComponent {
   }
 
   onClickBlank() {
-    this.normalSuiteComponent.clearSelection();
+    this.voteSuiteComponent.clearSelection();
     this.showdownSuiteComponent.clearSelection();
   }
 
@@ -89,6 +102,17 @@ export class AppComponent {
     // this.clearSettings();
     this.onClickSettings();
     this.sidenavComponent.close();
+  }
+
+  onClickRules() {
+    this.sidenavComponent.close();
+    const dialogRef = this.dialog.open(RulesComponent, {
+      width: '100vw',
+      height: '100vh',
+      minWidth: '100vw',
+      minHeight: '100vh',
+      panelClass: 'mat-dialog-no-padding'
+    });
   }
 
   onClickSettings() {
@@ -118,10 +142,10 @@ export class AppComponent {
   }
 
   onTabChange(tabChangeEvent: MatTabChangeEvent) {
-    this.normalSuiteComponent.clearSelection();
+    this.voteSuiteComponent.clearSelection();
     this.showdownSuiteComponent.clearSelection();
     if (tabChangeEvent.index === 0) {
-      this.gameMode = SuiteType.normal;
+      this.gameMode = SuiteType.vote;
     } else {
       this.gameMode = SuiteType.showdown;
     }

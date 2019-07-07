@@ -1,9 +1,14 @@
 export enum SuiteType {
-  normal,
+  vote,
   showdown
 }
 
-export const normalCardColorTable = {
+export enum Language {
+  Chinese = 'Chinese',
+  English = 'English'
+}
+
+export const voteCardColorTable = {
   1: 'green',
   2: 'black',
   3: 'blue',

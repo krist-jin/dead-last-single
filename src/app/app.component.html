@@ -2,7 +2,7 @@
   <mat-sidenav #sidenav>
     <mat-list>
       <mat-list-item (click)="onClickNewGame()">New Game</mat-list-item>
-      <mat-list-item (click)="sidenav.close();">Rules</mat-list-item>
+      <mat-list-item (click)="onClickRules()">Rules</mat-list-item>
       <mat-list-item (click)="onClickSettings()">Settings</mat-list-item>
       <mat-list-item (click)="sidenav.close();">About</mat-list-item>
     </mat-list>
@@ -15,7 +15,7 @@
       </button>
       <span>Dead Last</span>
       <div class="status-container">
-        <div class="my-icon" [ngStyle]="{'background-color': appService.getColorByNumber(myNumber, SuiteType.normal)}"></div>
+        <div class="my-icon" [ngStyle]="{'background-color': appService.getColorByNumber(myNumber, SuiteType.vote)}"></div>
         <div class="info-container">
           <div class="player-info">Player#{{myNumber}}</div>
           <div class="gold-info">
@@ -28,10 +28,10 @@
 
     <div class="card-container" (click)="onClickBlank()">
       <mat-tab-group mat-stretch-tabs [(selectedIndex)]="activeTabIndex" (selectedTabChange)="onTabChange($event)">
-        <mat-tab #normalTab label="Vote">
+        <mat-tab #voteTab label="Vote">
           <app-card-suite
-            #normalSuite
-            [type]="SuiteType.normal"
+            #voteSuite
+            [type]="SuiteType.vote"
             [playerCount]="playerCount"
             [myNumber]="myNumber"
           >
@@ -49,7 +49,7 @@
     <div class="action-container">
       <button
         (click)="onClickGo()"
-        [disabled]="!normalSuiteComponent?.selectedCardNumber && !showdownSuiteComponent?.selectedCardNumber"
+        [disabled]="!voteSuiteComponent?.selectedCardNumber && !showdownSuiteComponent?.selectedCardNumber"
         mat-raised-button
         color="primary"
       >Go!</button>

@@ -29,7 +29,7 @@ export class CardSuiteComponent implements OnInit {
   isEditMode = false;
 
   get numberList() {
-    if (this.type === SuiteType.normal) {
+    if (this.type === SuiteType.vote) {
       return this.playerCount ? _.range(1, this.playerCount + 1) : [];
     }
     if (this.type === SuiteType.showdown) {
