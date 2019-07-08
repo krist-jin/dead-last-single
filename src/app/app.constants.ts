@@ -30,22 +30,22 @@ export const showdownCardColorTable = {
 };
 
 export const voteCardAvatarTable = {
-  1: '/assets/images/animals/mouse.svg',
-  2: '/assets/images/animals/cow.svg',
-  3: '/assets/images/animals/tiger.svg',
-  4: '/assets/images/animals/rabbit.svg',
-  5: '/assets/images/animals/dragon.svg',
-  6: '/assets/images/animals/snake.svg',
-  7: '/assets/images/animals/horse.svg',
-  8: '/assets/images/animals/goat.svg',
-  9: '/assets/images/animals/monkey.svg',
-  10: '/assets/images/animals/cock.svg',
-  11: '/assets/images/animals/dog.svg',
-  12: '/assets/images/animals/pig.svg'
+  1: 'assets/images/animals/mouse.svg',
+  2: 'assets/images/animals/cow.svg',
+  3: 'assets/images/animals/tiger.svg',
+  4: 'assets/images/animals/rabbit.svg',
+  5: 'assets/images/animals/dragon.svg',
+  6: 'assets/images/animals/snake.svg',
+  7: 'assets/images/animals/horse.svg',
+  8: 'assets/images/animals/goat.svg',
+  9: 'assets/images/animals/monkey.svg',
+  10: 'assets/images/animals/cock.svg',
+  11: 'assets/images/animals/dog.svg',
+  12: 'assets/images/animals/pig.svg'
 };
 
 export const showdownCardAvatarTable = {
-  1: '/assets/images/showdown/share.png',
-  2: '/assets/images/showdown/steal.png',
-  3: '/assets/images/showdown/grab.png'
+  1: 'assets/images/showdown/share.png',
+  2: 'assets/images/showdown/steal.png',
+  3: 'assets/images/showdown/grab.png'
 };

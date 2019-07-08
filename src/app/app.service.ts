@@ -32,7 +32,7 @@ export class AppService {
 
   playKillAudio() {
     const audio = new Audio();
-    audio.src = `/assets/audio/kill${_.random(1, 4)}.mp3`;
+    audio.src = `assets/audio/kill${_.random(1, 4)}.mp3`;
     audio.load();
     audio.play();
   }

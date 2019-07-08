@@ -66,7 +66,7 @@ export class CardComponent implements OnInit {
 
   getBackgroudImage(cardNumber: number, cardType: SuiteType) {
     return {
-      'background-image': (this.isSelected ? 'url(/assets/images/target.svg)' + ',' : '') +
+      'background-image': (this.isSelected ? 'url(assets/images/target.svg)' + ',' : '') +
         'url(' + this.appService.getAvatar(cardNumber, cardType) + ')'
     };
   }
