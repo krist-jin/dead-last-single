@@ -58,8 +58,7 @@ import { NgForageModule, NgForageConfig, Driver } from 'ngforage';
     MatSelectModule,
     MatOptionModule,
     MatInputModule,
-    MatExpansionModule,
-    NgForageModule.forRoot({name: 'DeadLastApp'})
+    MatExpansionModule
   ],
   entryComponents: [
     GetGoldDialogComponent,
@@ -70,4 +69,10 @@ import { NgForageModule, NgForageConfig, Driver } from 'ngforage';
   providers: [AppService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  public constructor(ngfConfig: NgForageConfig) {
+    ngfConfig.configure({
+      name: 'DeadLastApp'
+    });
+  }
+}
