@@ -48,13 +48,14 @@
     </div>
     <div class="action-container">
       <button
+        class="action-button"
         (click)="onClickGo()"
         [disabled]="!voteSuiteComponent?.selectedCardNumber && !showdownSuiteComponent?.selectedCardNumber"
         mat-raised-button
         color="warn"
-      >Go!</button>
-      <button (click)="onClickGetGold()" mat-raised-button color="accent">
-        Get Gold
+      >Fire!</button>
+      <button class="action-button" (click)="onClickGetGold()" mat-raised-button color="accent">
+        Gold
       </button>
     </div>
   </mat-sidenav-content>

@@ -1,6 +1,8 @@
 .card-content {
   margin: 5px 0;
-  border-style: ridge;
+  border: 1px solid #695d39;
+  border-radius: .5em;
+  box-shadow: -.25em .25em .5em -.25em #000;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -30,6 +32,9 @@
   font-size: 12rem;
   justify-content: center;
   align-items: center;
+  border: unset;
+  border-radius: unset;
+  box-shadow: unset;
 
   .card-number {
     position: relative;
