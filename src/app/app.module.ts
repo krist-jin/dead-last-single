@@ -28,6 +28,7 @@ import { FormsModule } from '@angular/forms';
 import { SettingsDialogComponent } from './dialogs/settings-dialog/settings-dialog.component';
 import { RulesComponent } from './dialogs/rules/rules.component';
 import { AboutComponent } from './dialogs/about/about.component';
+import { NgForageModule, NgForageConfig, Driver } from 'ngforage';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AboutComponent } from './dialogs/about/about.component';
     MatSelectModule,
     MatOptionModule,
     MatInputModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgForageModule.forRoot({name: 'DeadLastApp'})
   ],
   entryComponents: [
     GetGoldDialogComponent,

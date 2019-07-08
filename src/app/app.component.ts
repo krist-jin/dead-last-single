@@ -8,6 +8,7 @@ import { GetGoldDialogComponent } from './dialogs/get-gold-dialog/get-gold-dialo
 import { SettingsDialogComponent, GameSettings } from './dialogs/settings-dialog/settings-dialog.component';
 import { RulesComponent } from './dialogs/rules/rules.component';
 import { DomSanitizer } from '@angular/platform-browser';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-root',
@@ -19,11 +20,11 @@ export class AppComponent {
 
   gameMode: SuiteType = SuiteType.vote;
 
-  playerCount: number = 12;
+  playerCount = 12;
 
-  myNumber: number = 3;
+  myNumber = 1;
 
-  gold: number = 0;
+  gold = 0;
 
   activeTabIndex = 0;
 
@@ -58,6 +59,18 @@ export class AppComponent {
       'English',
       this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/english.svg')
     );
+    this.appService.getCachedSettings().then(values => {
+      console.log(values);
+      if (values && values.length === 3) {
+        if (_.isNil(values[0]) || _.isNil(values[1]) || _.isNil(values[2])) {
+          this.onClickNewGame();
+        } else {
+          this.playerCount = values[0];
+          this.myNumber = values[1];
+          this.gold = values[2];
+        }
+      }
+    });
   }
 
   getSelectedCardNumber() {
@@ -96,14 +109,16 @@ export class AppComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.gold += result;
+        this.appService.saveSettings(this.playerCount, this.myNumber, this.gold).then(values => {
+          console.log(values);
+        });
       }
     });
   }
 
   onClickNewGame() {
     // this.clearSettings();
-    this.onClickSettings();
-    this.sidenavComponent.close();
+    this.onClickSettings(true);
   }
 
   onClickRules() {
@@ -117,14 +132,15 @@ export class AppComponent {
     });
   }
 
-  onClickSettings() {
+  onClickSettings(isNewGame: boolean) {
     const dialogRef = this.dialog.open(SettingsDialogComponent, {
       width: '250px',
       disableClose: true,
       data: {
         playerCount: this.playerCount,
         myNumber: this.myNumber,
-        gold: this.gold
+        gold: this.gold,
+        isNew: isNewGame
       }
     });
 
@@ -133,6 +149,9 @@ export class AppComponent {
         this.playerCount = result.playerCount;
         this.myNumber = result.myNumber;
         this.gold = result.gold;
+        this.appService.saveSettings(this.playerCount, this.myNumber, this.gold).then(values => {
+          console.log(values);
+        });
       }
     });
 

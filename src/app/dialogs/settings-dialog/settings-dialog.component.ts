@@ -6,6 +6,7 @@ export interface GameSettings {
   playerCount: number;
   myNumber: number;
   gold: number;
+  isNew?: boolean;
 }
 
 @Component({
