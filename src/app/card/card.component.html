@@ -1,11 +1,12 @@
 <mat-icon *ngIf="isFullScreen" class="close-button" (click)="onClickClose()">close</mat-icon>
 <div
-  class="card-content"
+  class="card-content shake-constant"
   [class.card-small]="!isFullScreen"
   [class.card-fullscreen]="isFullScreen"
   [class.card-selected]="isSelected"
   [class.card-hidden]="isHidden"
   [class.card-content-text]="isAmbush || cardType === SuiteType.showdown"
+  [class.shake-little]="isSelected"
   [ngStyle]="getBackgroudImage(cardNumber, cardType)"
   (click)="onClickCard($event)"
 >
