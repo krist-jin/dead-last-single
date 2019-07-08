@@ -11,7 +11,7 @@
   font-family: Impact, Charcoal, sans-serif;
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center 60%;
 
   .card-number {
     margin: 0 3px;
@@ -35,10 +35,11 @@
   border: unset;
   border-radius: unset;
   box-shadow: unset;
+  background-position: center 80%;
 
   .card-number {
     position: relative;
-    bottom: 35vh;
+    bottom: 25vh;
   }
 }
 

@@ -1,4 +1,8 @@
-<mat-sidenav-container [ngStyle]="{'display': !isCardDisplayMode ? 'initial' : 'none'}" fullscreen>
+<!-- (click)="enterFullScreen()" -->
+<mat-sidenav-container
+[ngStyle]="{'display': !isCardDisplayMode ? 'initial' : 'none'}"
+fullscreen
+>
   <mat-sidenav #sidenav>
     <mat-list>
       <mat-list-item (click)="onClickNewGame()">New Game</mat-list-item>

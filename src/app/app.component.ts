@@ -9,6 +9,8 @@ import { SettingsDialogComponent, GameSettings } from './dialogs/settings-dialog
 import { RulesComponent } from './dialogs/rules/rules.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as _ from 'lodash';
+import * as screenfull from 'screenfull';
+import {Screenfull} from 'screenfull';
 
 @Component({
   selector: 'app-root',
@@ -71,6 +73,13 @@ export class AppComponent {
         }
       }
     });
+  }
+
+  enterFullScreen() {
+    const sf = screenfull as Screenfull;
+    if (screenfull && screenfull.enabled && !sf.isFullscreen) {
+      screenfull.request();
+    }
   }
 
   getSelectedCardNumber() {
