@@ -84,6 +84,7 @@ export class AppComponent {
 
   onClickGo() {
     this.isCardDisplayMode = true;
+    this.appService.playKillAudio();
   }
 
   onClickGetGold() {

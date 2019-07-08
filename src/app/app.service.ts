@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SuiteType, voteCardColorTable, showdownCardColorTable, voteCardAvatarTable, showdownCardAvatarTable } from './app.constants';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,12 @@ export class AppService {
     if (cardType === SuiteType.showdown) {
       return n ? showdownCardAvatarTable[n] : 'unset';
     }
+  }
+
+  playKillAudio() {
+    const audio = new Audio();
+    audio.src = `/assets/audio/kill${_.random(1, 4)}.mp3`;
+    audio.load();
+    audio.play();
   }
 }
