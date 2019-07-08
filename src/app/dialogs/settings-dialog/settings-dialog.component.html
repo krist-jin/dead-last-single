@@ -29,6 +29,6 @@
   </mat-expansion-panel>
 </div>
 <div *ngIf="!points" mat-dialog-actions>
-  <button mat-button (click)="onClickCancel()">Cancel</button>
-  <button mat-button [disabled]="!data?.playerCount || !data?.myNumber" (click)="onClickConfirm()">Confirm</button>
+  <button mat-raised-button color="primary" [disabled]="!data?.playerCount || !data?.myNumber" (click)="onClickConfirm()">Confirm</button>
+  <button mat-raised-button (click)="onClickCancel()">Cancel</button>
 </div>

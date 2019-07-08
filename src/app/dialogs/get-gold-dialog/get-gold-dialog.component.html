@@ -15,9 +15,9 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <p *ngIf="points">
+  <p *ngIf="points" class="points-text">
     <span *ngIf="resultCards && resultCards.length > 1">
-      You got {{resultCards.join(' + ')}} = {{points}} gold bars!
+      You got {{resultCards.join(' + ')}} = {{points}} gold!
     </span>
     <span *ngIf="resultCards && resultCards.length === 1">
       You got {{points}} gold bars!
@@ -26,5 +26,5 @@
 </div>
 <div *ngIf="!points" mat-dialog-actions>
   <!-- <button mat-button (click)="onClickCancel()">Cancel</button> -->
-  <button mat-button (click)="onClickConfirm()">Confirm</button>
+  <button mat-raised-button color="primary" (click)="onClickConfirm()">Confirm</button>
 </div>
