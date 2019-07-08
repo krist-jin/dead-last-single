@@ -1,3 +1,4 @@
+import { AboutComponent } from './dialogs/about/about.component';
 import { AppService } from './app.service';
 import { Component, ViewChild } from '@angular/core';
 import { SuiteType } from './app.constants';
@@ -135,6 +136,17 @@ export class AppComponent {
     });
 
     this.sidenavComponent.close();
+  }
+
+  onClickAbout() {
+    this.sidenavComponent.close();
+    const dialogRef = this.dialog.open(AboutComponent, {
+      width: '100vw',
+      height: '100vh',
+      minWidth: '100vw',
+      minHeight: '100vh',
+      panelClass: 'mat-dialog-no-padding'
+    });
   }
 
   onExitFullScreen() {

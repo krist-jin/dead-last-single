@@ -27,6 +27,7 @@ import { GetGoldDialogComponent } from './dialogs/get-gold-dialog/get-gold-dialo
 import { FormsModule } from '@angular/forms';
 import { SettingsDialogComponent } from './dialogs/settings-dialog/settings-dialog.component';
 import { RulesComponent } from './dialogs/rules/rules.component';
+import { AboutComponent } from './dialogs/about/about.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { RulesComponent } from './dialogs/rules/rules.component';
     CardComponent,
     GetGoldDialogComponent,
     SettingsDialogComponent,
-    RulesComponent
+    RulesComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,8 @@ import { RulesComponent } from './dialogs/rules/rules.component';
   entryComponents: [
     GetGoldDialogComponent,
     SettingsDialogComponent,
-    RulesComponent
+    RulesComponent,
+    AboutComponent
   ],
   providers: [AppService],
   bootstrap: [AppComponent]
