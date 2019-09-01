@@ -69,6 +69,7 @@ fullscreen
   [ngStyle]="{'display': isCardDisplayMode ? 'initial' : 'none'}"
   [cardType]="gameMode"
   [cardNumber]="getSelectedCardNumber()"
+  [isAmbush]="myNumber===getSelectedCardNumber()"
   [isFullScreen]="isCardDisplayMode"
   (exitFullScreen)="onExitFullScreen()"
 >

@@ -5,7 +5,7 @@
   <mat-form-field>
     <mat-label>How many players?</mat-label>
     <mat-select value="6" [(ngModel)]="data.playerCount">
-      <mat-option *ngFor="let i of getNumberRange(6, 12)" [value]="i">{{i}}</mat-option>
+      <mat-option *ngFor="let i of getNumberRange(1, 12)" [value]="i">{{i}}</mat-option>
     </mat-select>
   </mat-form-field>
 
